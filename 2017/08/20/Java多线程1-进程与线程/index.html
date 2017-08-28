@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Kenny&#39;s Blog</title>
+  <title>进程与线程 | Kenny&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kenny&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1.什么是进程?进程是操作系统结构的基础，是一次程序的执行，是系统进行资源分配和调度的一个独立单位。这个解释有点懵了。简单来讲就是一个正在操作系统中的运行的exe程序就是一个进程。">
+<meta name="keywords" content="多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进程与线程">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/Java多线程1-进程与线程/index.html">
 <meta property="og:site_name" content="Kenny&#39;s Blog">
-<meta property="og:description" content="这是我的个人博客">
+<meta property="og:description" content="1.什么是进程?进程是操作系统结构的基础，是一次程序的执行，是系统进行资源分配和调度的一个独立单位。这个解释有点懵了。简单来讲就是一个正在操作系统中的运行的exe程序就是一个进程。">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fitcjyruajj20u011h412.jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223718196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223742102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223751802?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223823366?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223832493?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223900882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223932476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170606223958774?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-08-23T15:01:55.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kenny&#39;s Blog">
-<meta name="twitter:description" content="这是我的个人博客">
+<meta name="twitter:title" content="进程与线程">
+<meta name="twitter:description" content="1.什么是进程?进程是操作系统结构的基础，是一次程序的执行，是系统进行资源分配和调度的一个独立单位。这个解释有点懵了。简单来讲就是一个正在操作系统中的运行的exe程序就是一个进程。">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fitcjyruajj20u011h412.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Kenny&#39;s Blog" type="application/atom+xml">
   
@@ -159,93 +171,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-shiping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java多线程1-进程与线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/28/shiping/">本渣渣所收集的编程资源大全</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/28/shiping/" class="archive-article-date">
-  	<time datetime="2017-08-28T13:33:49.259Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://ws1.sinaimg.cn/large/610dc034gy1fi502l3eqjj20u00hz41j.jpg" width="400" height="300"></p>
-        
-          <a class="article-more-a" href="/2017/08/28/shiping/#more">more >></a>
-        
-      
-
-      
-     
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/28/shiping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java多线程1-进程与线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/Java多线程1-进程与线程/">进程与线程</a>
+    <h1 class="article-title" itemprop="name">
+      进程与线程
     </h1>
   
 
@@ -258,13 +191,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://ws1.sinaimg.cn/large/610dc034ly1fitcjyruajj20u011h412.jpg" width="400" height="300"></p>
+        <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ws1.sinaimg.cn/large/610dc034ly1fitcjyruajj20u011h412.jpg" width="400" height="300"></p>
 <h3 id="1-什么是进程"><a href="#1-什么是进程" class="headerlink" title="1.什么是进程?"></a>1.什么是进程?</h3><p>进程是操作系统结构的基础，是一次程序的执行，是系统进行资源分配和调度的一个独立单位。<br>这个解释有点懵了。简单来讲就是一个正在操作系统中的运行的exe程序就是一个进程。</p>
-        
-          <a class="article-more-a" href="/2017/08/20/Java多线程1-进程与线程/#more">more >></a>
-        
+<a id="more"></a>
+<p><img src="http://img.blog.csdn.net/20170606223718196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2-什么是线程？"><a href="#2-什么是线程？" class="headerlink" title="2.什么是线程？"></a>2.什么是线程？</h3><p>线程可以理解为是在进程中独立运行的子任务。比如：酷狗音乐.exe运行时,就会有很多子任务在同时运行，包括下载歌词线程，直播线程等</p>
+<h3 id="3-线程的优点"><a href="#3-线程的优点" class="headerlink" title="3.线程的优点"></a>3.线程的优点</h3><p>可以在同一时间内运行更多不同种类的任务，比如作为程序员，我们经常边coding,边听钢琴曲，CPU在不同任务之间飞快切换，导致一种错觉—它们是在同时运行的。</p>
+<p><img src="http://img.blog.csdn.net/20170606223742102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20170606223751802?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>在单任务中，Task1需要花费100s，而Task2必须要等到Task1执行完毕后才能执行，这对Task2来说肯定很不爽，而在多任务中，Task2不必等到Task1完成后再执行，它们是异步的，因此，效率高了。</p>
+<h3 id="4-怎样使用线程？"><a href="#4-怎样使用线程？" class="headerlink" title="4.怎样使用线程？"></a>4.怎样使用线程？</h3><p>实现多线程编程的方式主要有2种，一种是extends Thread，一种是implements Runnable.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class MyThread extends  Thread&#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        super.run();</div><div class="line">        System.out.println(&quot;MyThread&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class Run &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        MyThread myThread = new MyThread();</div><div class="line">        myThread.start();</div><div class="line">        System.out.println(&quot;结束运行&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">结束运行</div><div class="line">MyThread</div></pre></td></tr></table></figure>
+<p><strong>extends Thread的最大弊端在于不支持多继承，为了实现多继承，可以使用第二种方式implements Runnable</strong>.还有，从结果上来看，run方法执行的时间较晚，也就是说，<strong>在使用多线程技术时，代码执行结果与代码执行顺序是无关的。</strong></p>
+<p>这里有一个坑就是extends Thread的线程多次调用start()方法会报<br>           <img src="http://img.blog.csdn.net/20170606223823366?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">   </p>
+<p><img src="http://img.blog.csdn.net/20170606223832493?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>原因在于<strong>一个Thread实例只能启动一个线程.</strong></p>
+<p>extends Thread 一般不太建议使用，因为单继承原因，而更推荐implements Runnable接口。<br>我们先看一下Thread类的构造函数,<br><img src="http://img.blog.csdn.net/20170606223900882?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>可以看到，可以传递一个Runnable接口，这就好办了，我们可以通过new Thread(Runnable target).start();的方式去启动一个线程了。还有，Thread（Runnable target）不光可以接收一个Runnable接口对象，还可以接收Thread对象(因为Thread implements Runnbale了，多态嘛)，这样做完全可以将一个Thread对象的run()交给其他线程去调用<br>再来看一下Runnable接口有什么方法？</p>
+<p><img src="http://img.blog.csdn.net/20170606223932476?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到，就有唯一的run()，<em>翻译过来的意思是:”当我们implements Runnable时去创建 一个线程时，启动它就会执行run()”</em>，而通过源码得知Thread类其实也implements Runnable,因此我们使用run().</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class MyRunnable implements Runnable&#123;</div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        System.out.println(&quot;MyRunnable&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class Run &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        MyRunnable myRunnable = new MyRunnable();</div><div class="line">        new Thread(myRunnable).start();</div><div class="line">        new Thread(myRunnable).start();</div><div class="line">        new Thread(myRunnable).start();</div><div class="line">        System.out.println(&quot;结束运行&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里同样多次调用start()，但程序是可以正常运行的。这是为什么呢？还是刚刚说的那句话<strong>一个Thread实例只能启动一个线程</strong>，这里3次new Thread，当然不是同一个实例啦。</p>
+<h3 id="5-实例变量与线程安全"><a href="#5-实例变量与线程安全" class="headerlink" title="5.实例变量与线程安全"></a>5.实例变量与线程安全</h3><p>实例变量可以对其他线程有共享和不共享之分。</p>
+<p>比如说，我们创建了3个线程，每个线程都有各自的count变量，它们互不影响，这就是变量不共享。<br>共享数据的情况就是多个线程同时访问同一变量，这时往往会出现脏读现象。<br>代码实例:</p>
+<p>LoginServlet代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class LoginServlet &#123;</div><div class="line">    private static String username;</div><div class="line">    private static String password;</div><div class="line">    public void dopost(String username,String password)&#123;</div><div class="line">        LoginServlet.username = username;</div><div class="line">        if(username.equals(&quot;a&quot;))&#123;</div><div class="line">            try &#123;</div><div class="line">                Thread.sleep(3000);</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        LoginServlet.password=password;</div><div class="line">        System.out.println(&quot;当前线程名称:&quot;+Thread.currentThread().getName()+&quot;用户名&quot;+LoginServlet.username+&quot;密码&quot;+LoginServlet.password);</div><div class="line">       </div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class MyThread1 extends Thread &#123;</div><div class="line">    LoginServlet loginServlet;</div><div class="line"></div><div class="line">    MyThread1(LoginServlet loginServlet) &#123;</div><div class="line">        this.loginServlet = loginServlet;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        super.run();</div><div class="line">        loginServlet.dopost(&quot;a&quot;, &quot;aa&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class MyThread2 extends Thread &#123;</div><div class="line">    LoginServlet loginServlet;</div><div class="line"></div><div class="line">    MyThread2(LoginServlet loginServlet) &#123;</div><div class="line">        this.loginServlet = loginServlet;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void run() &#123;</div><div class="line">        super.run();</div><div class="line">        loginServlet.dopost(&quot;b&quot;, &quot;bb&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Run &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        LoginServlet loginServlet = new LoginServlet();</div><div class="line">        MyThread1 myThread1 = new MyThread1(loginServlet);</div><div class="line">        MyThread2 myThread2 = new MyThread2(loginServlet);</div><div class="line">        myThread1.start();</div><div class="line">        myThread2.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170606223958774?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这里出现了脏读现象，可以通过加锁机制，关于synchronized加锁，下次会详细讲解</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/./img/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+
+                    
+                  </div>
+                </span>
+              </span>
+
+            </span>
+          </div>
+          </a>
+        </div>
+        <span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
       
      
     </div>
@@ -285,16 +273,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/20/Java多线程1-进程与线程/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/20/Java多线程1-进程与线程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/28/shiping/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          本渣渣所收集的编程资源大全
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -314,8 +365,40 @@
 
 
 
+  
+  
+  
 
   
+  <div id="SOHUCS" sid="Java多线程1-进程与线程" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+ 
+  <section id="comments">
+
+<div id="SOHUCS" sid="进程与线程"></div>
+<script>
+  (function(){
+    var appid = 'cytbDsVkl',
+    conf = 'prod_d99aa62949c821767bdd54d3d21e827d';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+  </section>
   
 
 
@@ -348,8 +431,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
