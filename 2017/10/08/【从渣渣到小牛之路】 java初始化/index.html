@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>java初始化 | Kenny&#39;s Blog</title>
+  <title>【从渣渣到小牛之路】 java初始化 | Kenny&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="java语法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java初始化">
-<meta property="og:url" content="http://yoursite.com/2017/10/08/java初始化/index.html">
+<meta property="og:title" content="【从渣渣到小牛之路】 java初始化">
+<meta property="og:url" content="http://yoursite.com/2017/10/08/【从渣渣到小牛之路】 java初始化/index.html">
 <meta property="og:site_name" content="Kenny&#39;s Blog">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20170426142209175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-08T09:41:07.066Z">
+<meta property="og:updated_time" content="2017-10-08T09:47:22.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java初始化">
+<meta name="twitter:title" content="【从渣渣到小牛之路】 java初始化">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Kenny&#39;s Blog" type="application/atom+xml">
@@ -163,19 +163,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java初始化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【从渣渣到小牛之路】 java初始化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java初始化
+      【从渣渣到小牛之路】 java初始化
     </h1>
   
 
         
-        <a href="/2017/10/08/java初始化/" class="archive-article-date">
+        <a href="/2017/10/08/【从渣渣到小牛之路】 java初始化/" class="archive-article-date">
   	<time datetime="2017-10-08T09:32:58.377Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
 </a>
         
@@ -185,7 +185,7 @@
       
         <script src="\assets\js\APlayer.min.js"> </script><p><img src="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg" width="400" height="300"></p>
 <a id="more"></a>
-<p>###1.用构造器进行初始化<br>在Java中，通过提供构造器，可以确保每个对象都会得到初始化。创建对象时，如果其类具有构造器，Java就会在用户有能力操作对象之前自动调用相应的构造器，从而保证了初始化的进行。</p>
+<h3 id="1-用构造器进行初始化"><a href="#1-用构造器进行初始化" class="headerlink" title="1.用构造器进行初始化"></a>1.用构造器进行初始化</h3><p>在Java中，通过提供构造器，可以确保每个对象都会得到初始化。创建对象时，如果其类具有构造器，Java就会在用户有能力操作对象之前自动调用相应的构造器，从而保证了初始化的进行。</p>
 <ul>
 <li>构造器采用与类相同的名称，因此“每个方法首字母小写”的编码风格不适合用在构造器中</li>
 <li>构造器是一种特殊类型的方法，因为它没有返回值。这与返回值为空（Void）不同,对于空返回值，尽管方法本身不会返回什么，但仍可以让它返回别的东西。</li>
@@ -193,25 +193,10 @@
 <li>但是，如果你在类中已经定义了一个构造器（无论是否有参数），那么编译器就不会帮你自动创建默认构造器了。</li>
 </ul>
 <p> <img src="http://img.blog.csdn.net/20170426142209175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
-<p>###2.方法重载<br>为了让方法名相同而让<font color="#f00" size="4" face="黑体">形式参数不同(独一无二的参数类型)</font>的构造器同时存在，必须用到方法重载。要对明显相同的概念使用了不同的名字，就会令人困惑，好在有了方法重载，可以为二者使用了相同的名字。</p>
-<pre><code>  class NBA{
-    public NBA() {
-        System.out.println(&quot;这是无参构造&quot;);
-    }
-public NBA(String team) {
-    System.out.println(&quot;这是有一个参数的构造&quot;+team);
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        new NBA();
-        new NBA(&quot;火箭&quot;);
-    }
-}
-</code></pre><p>####2.1基本类型的重载<br>如果传入的数据类型（实参）小于方法中声明的形参类型，那么数据类型就会被提升。反之，需要将实参进行窄化。</p>
-<p>####2.2不能以返回值区分方法重载</p>
-<p>有时候，我们并不关心方法的返回值，</p>
+<h3 id="2-方法重载"><a href="#2-方法重载" class="headerlink" title="2.方法重载"></a>2.方法重载</h3><p>为了让方法名相同而让<font color="#f00" size="4" face="黑体">形式参数不同(独一无二的参数类型)</font>的构造器同时存在，必须用到方法重载。要对明显相同的概念使用了不同的名字，就会令人困惑，好在有了方法重载，可以为二者使用了相同的名字。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span></span>&#123;</div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="title">NBA</span><span class="params">()</span> </span>&#123;</div><div class="line">   		System.out.println(<span class="string">"这是无参构造"</span>);</div><div class="line">   	&#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">NBA</span><span class="params">(String team)</span> </span>&#123;</div><div class="line">   	System.out.println(<span class="string">"这是有一个参数的构造"</span>+team);</div><div class="line">   	&#125;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">   		<span class="keyword">new</span> NBA();</div><div class="line">   		<span class="keyword">new</span> NBA(<span class="string">"火箭"</span>);</div><div class="line">   	&#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="2-1基本类型的重载"><a href="#2-1基本类型的重载" class="headerlink" title="2.1基本类型的重载"></a>2.1基本类型的重载</h4><p>如果传入的数据类型（实参）小于方法中声明的形参类型，那么数据类型就会被提升。反之，需要将实参进行窄化。</p>
+<h4 id="2-2不能以返回值区分方法重载"><a href="#2-2不能以返回值区分方法重载" class="headerlink" title="2.2不能以返回值区分方法重载"></a>2.2不能以返回值区分方法重载</h4><p>有时候，我们并不关心方法的返回值，</p>
 <pre><code>int i(){
     return 0;
 }
@@ -538,7 +523,7 @@ CBA
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/08/java初始化/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/08/【从渣渣到小牛之路】 java初始化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -584,7 +569,7 @@ CBA
   
 
   
-  <div id="SOHUCS" sid="java初始化" ></div> 
+  <div id="SOHUCS" sid="【从渣渣到小牛之路】 java初始化" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
@@ -597,7 +582,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
  
   <section id="comments">
 
-<div id="SOHUCS" sid="java初始化"></div>
+<div id="SOHUCS" sid="【从渣渣到小牛之路】 java初始化"></div>
 <script>
   (function(){
     var appid = 'cytbDsVkl',
