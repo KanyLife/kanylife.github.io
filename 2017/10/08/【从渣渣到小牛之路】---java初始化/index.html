@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kenny&#39;s Blog">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20170426142209175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-08T09:51:57.145Z">
+<meta property="og:updated_time" content="2017-10-08T13:47:49.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从渣渣到小牛之路】---java初始化">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
@@ -196,59 +196,12 @@
 <h3 id="2-方法重载"><a href="#2-方法重载" class="headerlink" title="2.方法重载"></a>2.方法重载</h3><p>为了让方法名相同而让<font color="#f00" size="4" face="黑体">形式参数不同(独一无二的参数类型)</font>的构造器同时存在，必须用到方法重载。要对明显相同的概念使用了不同的名字，就会令人困惑，好在有了方法重载，可以为二者使用了相同的名字。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span></span>&#123;</div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="title">NBA</span><span class="params">()</span> </span>&#123;</div><div class="line">   		System.out.println(<span class="string">"这是无参构造"</span>);</div><div class="line">   	&#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">NBA</span><span class="params">(String team)</span> </span>&#123;</div><div class="line">   	System.out.println(<span class="string">"这是有一个参数的构造"</span>+team);</div><div class="line">   	&#125;</div><div class="line">   &#125;</div><div class="line">   </div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">   		<span class="keyword">new</span> NBA();</div><div class="line">   		<span class="keyword">new</span> NBA(<span class="string">"火箭"</span>);</div><div class="line">   	&#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 <h4 id="2-1基本类型的重载"><a href="#2-1基本类型的重载" class="headerlink" title="2.1基本类型的重载"></a>2.1基本类型的重载</h4><p>如果传入的数据类型（实参）小于方法中声明的形参类型，那么数据类型就会被提升。反之，需要将实参进行窄化。</p>
-<h4 id="2-2不能以返回值区分方法重载"><a href="#2-2不能以返回值区分方法重载" class="headerlink" title="2.2不能以返回值区分方法重载"></a>2.2不能以返回值区分方法重载</h4><p>有时候，我们并不关心方法的返回值，</p>
-<pre><code>int i(){
-    return 0;
-}
-float i(){
-    return &apos;0&apos;;
-}
-</code></pre><p>编译不过去。当调用i()时，Java并不知道该调用哪个</p>
+<h4 id="2-2不能以返回值区分方法重载"><a href="#2-2不能以返回值区分方法重载" class="headerlink" title="2.2不能以返回值区分方法重载"></a>2.2不能以返回值区分方法重载</h4><p>有时候，我们并不关心方法的返回值，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">i</span><span class="params">()</span></span>&#123;</div><div class="line"> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">i</span><span class="params">()</span></span>&#123;</div><div class="line"> <span class="keyword">return</span> <span class="string">'0'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>编译不过去。当调用i()时，Java并不知道该调用哪个</p>
 <h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>this关键字<font color="#f00" size="4" face="黑体">只能在方法内部使用</font>，表示对<font color="#f00" size="4" face="黑体">“调用方法的那个对象”</font>的引用。如果在方法内部调用同一个类中的另一个方法时，就不必用this，直接调用即可</p>
-<p>只有当需要明确指出对当前对象的引用时，才需要使用this关键字。</p>
-<pre><code>class NBA {
-    int i;
-
-    public NBA increment() {
-        i++;
-        return this;
-    }
-
-    public void print() {
-        System.out.println(i);
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        new NBA().increment().increment().print();
-    }
-}
-</code></pre><h4 id="在构造器中调用构造器"><a href="#在构造器中调用构造器" class="headerlink" title="在构造器中调用构造器"></a>在构造器中调用构造器</h4><pre><code>class NBA {
-    int i;
-    NBA(String team){
-        System.out.println(team);
-    }
-    NBA(int year){
-        System.out.println(year);
-    }
-NBA(String team,int year){
-    this(team);  //只能在构造器的第一行调用其它构造器
-    // this(year);   //在构造器中调用1个的构造器
-}
-
-    public void print() {
-        // this();//在非构造器中不能调用构造器
-        System.out.println(i);
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        new NBA(&quot;火箭&quot;, 20);
-    }
-}
-</code></pre><ul>
+<p>只有当需要明确指出对当前对象的引用时，才需要使用this关键字。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> NBA <span class="title">increment</span><span class="params">()</span> </span>&#123;</div><div class="line">		i++;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> NBA().increment().increment().print();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="在构造器中调用构造器"><a href="#在构造器中调用构造器" class="headerlink" title="在构造器中调用构造器"></a>在构造器中调用构造器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	NBA(String team)&#123;</div><div class="line">		System.out.println(team);</div><div class="line">	&#125;</div><div class="line">	NBA(<span class="keyword">int</span> year)&#123;</div><div class="line">		System.out.println(year);</div><div class="line">	&#125;</div><div class="line">NBA(String team,<span class="keyword">int</span> year)&#123;</div><div class="line">	<span class="keyword">this</span>(team);  <span class="comment">//只能在构造器的第一行调用其它构造器</span></div><div class="line">	<span class="comment">// this(year);   //在构造器中调用1个的构造器</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// this();//在非构造器中不能调用构造器</span></div><div class="line">		System.out.println(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> NBA(<span class="string">"火箭"</span>, <span class="number">20</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
 <li><font color="#f00" size="4" face="黑体">尽管this可以调用一个构造器，但却不能调用二个</font></li>
 <li><font color="#f00" size="4" face="黑体">构造器必须置于最始处</font></li>
 <li><font color="#f00" size="4" face="黑体">除构造器之外，编译器禁止在其他任何方法中调用构造器。</font>
@@ -264,93 +217,18 @@ public class Demo1 {
 <p>关于垃圾回收机制建议看《深入理解Java虚拟机》，这本书是我的下月计划。</p>
 <h3 id="成员初始化"><a href="#成员初始化" class="headerlink" title="成员初始化"></a>成员初始化</h3><p>java尽力保证：所有变量在使用前都能得到恰到的初始化。</p>
 <p><strong>而类的数据成员，即字段，都会有一个初始值。</strong></p>
-<pre><code>class A{}
-class NBA {
-    int i;
-    float f;
-    boolean b;
-    char c;
-    byte by;
-    short s;
-    long l;
-    double d;
-    A a;
-    void print(){
-        System.out.println(i);  // 0
-        System.out.println(f);  // 0.0
-        System.out.println(b);  //false
-        System.out.println(c);  // 
-        System.out.println(by); // 0
-        System.out.println(s);  // 0
-        System.out.println(l);  // 0
-        System.out.println(d);  // 0.0
-        System.out.println(a);  // null
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-
-    new NBA().print();
-    }
-}
-</code></pre><h4 id="初始化顺序"><a href="#初始化顺序" class="headerlink" title="初始化顺序"></a>初始化顺序</h4><p> <strong>在类的内部，变量定义的先后顺序决定了初始化的顺序。即使变量定义散布于方法定义（包括构造器）之间，它们也会在任何方法被调用之前得到初始化。</strong></p>
-<pre><code>class CBA{
-    CBA(String team){
-        System.out.println(team);
-    }
-}
-class NBA {
-    CBA cba = new CBA(&quot;上海哔哩哔哩&quot;);   //在构造器方法前
-    NBA(){
-        System.out.println(&quot;NBA构造器&quot;);
-    }
-    CBA cba2 = new CBA(&quot;浙江稠州银行&quot;);   //在构造器方法后
-    void f(){
-        System.out.println(&quot;普通方法&quot;);
-    }
-    CBA cba3 = new CBA(&quot;北京首钢&quot;);//在普通方法后
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        new NBA().f();
-    }
-}
-
-输出：
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">float</span> f;</div><div class="line">	<span class="keyword">boolean</span> b;</div><div class="line">	<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">byte</span> by;</div><div class="line">	<span class="keyword">short</span> s;</div><div class="line">	<span class="keyword">long</span> l;</div><div class="line">	<span class="keyword">double</span> d;</div><div class="line">	A a;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(i);  <span class="comment">// 0</span></div><div class="line">		System.out.println(f);  <span class="comment">// 0.0</span></div><div class="line">		System.out.println(b);  <span class="comment">//false</span></div><div class="line">		System.out.println(c);  <span class="comment">// </span></div><div class="line">		System.out.println(by); <span class="comment">// 0</span></div><div class="line">		System.out.println(s);  <span class="comment">// 0</span></div><div class="line">		System.out.println(l);  <span class="comment">// 0</span></div><div class="line">		System.out.println(d);  <span class="comment">// 0.0</span></div><div class="line">		System.out.println(a);  <span class="comment">// null</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">	<span class="keyword">new</span> NBA().print();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="初始化顺序"><a href="#初始化顺序" class="headerlink" title="初始化顺序"></a>初始化顺序</h4><p> <strong>在类的内部，变量定义的先后顺序决定了初始化的顺序。即使变量定义散布于方法定义（包括构造器）之间，它们也会在任何方法被调用之前得到初始化。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CBA</span></span>&#123;</div><div class="line">	CBA(String team)&#123;</div><div class="line">		System.out.println(team);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	CBA cba = <span class="keyword">new</span> CBA(<span class="string">"上海哔哩哔哩"</span>);   <span class="comment">//在构造器方法前</span></div><div class="line">	NBA()&#123;</div><div class="line">		System.out.println(<span class="string">"NBA构造器"</span>);</div><div class="line">	&#125;</div><div class="line">	CBA cba2 = <span class="keyword">new</span> CBA(<span class="string">"浙江稠州银行"</span>);   <span class="comment">//在构造器方法后</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"普通方法"</span>);</div><div class="line">	&#125;</div><div class="line">	CBA cba3 = <span class="keyword">new</span> CBA(<span class="string">"北京首钢"</span>);<span class="comment">//在普通方法后</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> NBA().f();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>输出：
 上海哔哩哔哩
 浙江稠州银行
 北京首钢
 NBA构造器
 普通方法
 </code></pre><h4 id="静态数据的初始化"><a href="#静态数据的初始化" class="headerlink" title="静态数据的初始化"></a>静态数据的初始化</h4><p><strong>无论创建多少个对象，静态数据都只占用一份存储区域。static关键字不能应用于局部变量，因此它只能作用于域。</strong></p>
-<pre><code>class WCBA{
-    WCBA(){
-        System.out.println(&quot;WCBA构造器&quot;);    
-    }
-}
-class CBA{
-    static WCBA wcba= new WCBA();
-    CBA(String team){
-        System.out.println(team);
-    }
-}
-class NBA {
-
-    NBA(){
-        System.out.println(&quot;NBA构造器&quot;);
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        new CBA(&quot;浙江&quot;);
-    new NBA();
-    }
-    static CBA cba3=new CBA(&quot;上海&quot;);
-}
-</code></pre><p>结果:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WCBA</span></span>&#123;</div><div class="line">	WCBA()&#123;</div><div class="line">		System.out.println(<span class="string">"WCBA构造器"</span>);	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CBA</span></span>&#123;</div><div class="line">	<span class="keyword">static</span> WCBA wcba= <span class="keyword">new</span> WCBA();</div><div class="line">	CBA(String team)&#123;</div><div class="line">		System.out.println(team);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	</div><div class="line">	NBA()&#123;</div><div class="line">		System.out.println(<span class="string">"NBA构造器"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">new</span> CBA(<span class="string">"浙江"</span>);</div><div class="line">	<span class="keyword">new</span> NBA();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">static</span> CBA cba3=<span class="keyword">new</span> CBA(<span class="string">"上海"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果:</p>
 <pre><code>WCBA构造器
 上海
 浙江
@@ -358,63 +236,38 @@ NBA构造器
 </code></pre><hr>
 <p>初始化的顺序是先静态对象（如果他们尚未因前面的对象创建过程而被初始化），然后是非静态对象。<br>在main（）方法执行之前，先执行静态对象，也就是cba3,需要加载CBA类，同理，CBA类取加载WCBA,执行WCBA的构造，再执行CBA构造，最后执行main方法，值得注意的是，new CBA(“浙江”),直接输出浙江二字，并没有再去执行static WCBA wcba= new WCBA();充分说明了static只执行一次。</p>
 <h4 id="显示的静态初始化"><a href="#显示的静态初始化" class="headerlink" title="显示的静态初始化"></a>显示的静态初始化</h4><p><strong>静态块也执行一次，当首次生成该类对象时，或者首次访问属于那个类的静态数据成员时。</strong></p>
-<pre><code>class CBA{
-
-    CBA(String team){
-        System.out.println(team);
-    }
-    void f(){
-        System.out.println(&quot;CBA&quot;);
-    }
-}
-class NBA {
-    static CBA cba1;
-    static CBA cba2;
-    static{
-        cba1=new CBA(&quot;上海bilibili&quot;);
-        cba2=new CBA(&quot;上海bilibili2&quot;);
-    }
-    NBA(){
-        System.out.println(&quot;NBA构造器&quot;);
-    }
-}
-
-public class Demo1 {
-    public static void main(String[] args) {
-        NBA.cba1.f();
-      //new NBA().cba1.f();这句话也行
-    }
-}
-</code></pre><p>输出:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CBA</span></span>&#123;</div><div class="line"></div><div class="line">	CBA(String team)&#123;</div><div class="line">		System.out.println(team);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"CBA"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> CBA cba1;</div><div class="line">	<span class="keyword">static</span> CBA cba2;</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		cba1=<span class="keyword">new</span> CBA(<span class="string">"上海bilibili"</span>);</div><div class="line">		cba2=<span class="keyword">new</span> CBA(<span class="string">"上海bilibili2"</span>);</div><div class="line">	&#125;</div><div class="line">	NBA()&#123;</div><div class="line">		System.out.println(<span class="string">"NBA构造器"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		NBA.cba1.f();</div><div class="line">      <span class="comment">//new NBA().cba1.f();这句话也行</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出:</p>
 <pre><code>上海bilibili
 上海bilibili2
 CBA
 </code></pre><h4 id="非静态实例初始化"><a href="#非静态实例初始化" class="headerlink" title="非静态实例初始化"></a>非静态实例初始化</h4><p><strong>用于初始化每个对象的非静态变量</strong></p>
-<pre><code>class CBA{
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">CBA</span></span>{
 CBA(String team){
         System.out.println(team);
     }
-    void f(){
-        System.out.println(&quot;CBA&quot;);
+    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>{
+        System.out.println(<span class="string">"CBA"</span>);
     }
 }
-class NBA {
+<span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>{
     CBA cba1;
     CBA cba2;
     {
-        cba1=new CBA(&quot;上海bilibili&quot;);
-        cba2=new CBA(&quot;上海bilibili2&quot;);
+        cba1=<span class="keyword">new</span> CBA(<span class="string">"上海bilibili"</span>);
+        cba2=<span class="keyword">new</span> CBA(<span class="string">"上海bilibili2"</span>);
     }
 
 }
 
-public class Demo1 {
-    public static void main(String[] args) {
-        new NBA().cba1.f();
-        new NBA().cba1.f();
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        <span class="keyword">new</span> NBA().cba1.f();
+        <span class="keyword">new</span> NBA().cba1.f();
     }
 }
-</code></pre><p>输出：</p>
+</code></pre>
+<p>输出：</p>
 <pre><code>上海bilibili
 上海bilibili2
 CBA
@@ -701,11 +554,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">Plan</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Plan</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
