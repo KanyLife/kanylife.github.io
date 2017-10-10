@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Kenny&#39;s Blog">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20170426142209175?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzE2MDk5ODM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-08T13:47:49.279Z">
+<meta property="og:updated_time" content="2017-10-10T13:59:40.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【从渣渣到小牛之路】---java初始化">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/610dc034ly1fjs25xfq48j20u00mhtb6.jpg">
@@ -209,13 +209,13 @@
 </li>
 </ul>
 <h4 id="static含义"><a href="#static含义" class="headerlink" title="static含义"></a>static含义</h4><p><strong>static方法就是没有this的方法，在static方法的内部不能调用非静态方法</strong>（类加载器将会去加载类，而static修饰的方法是属于类的，因此，static方法同时也被加载，而非静态方法需要对象，此时还没有生成对象，所以static方法的内部不能调用非静态方法），反之，可行。在没有创建对象的前提下，仅仅通过类本身来调用static方法，这正是static主要用途。static方法可以访问其他static域和方法。<br>面向对象的思想是“向对象发送消息”，而由于static方法就是没有this的方法，所以并不是面向对象思想，因此，尽量少用static.</p>
-<h3 id="清理-终结处理和垃圾回收"><a href="#清理-终结处理和垃圾回收" class="headerlink" title="清理:终结处理和垃圾回收"></a>清理:终结处理和垃圾回收</h3><ul>
+<h4 id="清理-终结处理和垃圾回收"><a href="#清理-终结处理和垃圾回收" class="headerlink" title="清理:终结处理和垃圾回收"></a>清理:终结处理和垃圾回收</h4><ul>
 <li>在Java中，对象并非总是被垃圾回收</li>
 <li>垃圾回收只与内存有关</li>
 <li>如果jvm并未面临内存耗尽的情形，它就不会去执行垃圾回收以恢复内存的。</li>
 </ul>
 <p>关于垃圾回收机制建议看《深入理解Java虚拟机》，这本书是我的下月计划。</p>
-<h3 id="成员初始化"><a href="#成员初始化" class="headerlink" title="成员初始化"></a>成员初始化</h3><p>java尽力保证：所有变量在使用前都能得到恰到的初始化。</p>
+<h4 id="成员初始化"><a href="#成员初始化" class="headerlink" title="成员初始化"></a>成员初始化</h4><p>java尽力保证：所有变量在使用前都能得到恰到的初始化。</p>
 <p><strong>而类的数据成员，即字段，都会有一个初始值。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NBA</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">float</span> f;</div><div class="line">	<span class="keyword">boolean</span> b;</div><div class="line">	<span class="keyword">char</span> c;</div><div class="line">	<span class="keyword">byte</span> by;</div><div class="line">	<span class="keyword">short</span> s;</div><div class="line">	<span class="keyword">long</span> l;</div><div class="line">	<span class="keyword">double</span> d;</div><div class="line">	A a;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(i);  <span class="comment">// 0</span></div><div class="line">		System.out.println(f);  <span class="comment">// 0.0</span></div><div class="line">		System.out.println(b);  <span class="comment">//false</span></div><div class="line">		System.out.println(c);  <span class="comment">// </span></div><div class="line">		System.out.println(by); <span class="comment">// 0</span></div><div class="line">		System.out.println(s);  <span class="comment">// 0</span></div><div class="line">		System.out.println(l);  <span class="comment">// 0</span></div><div class="line">		System.out.println(d);  <span class="comment">// 0.0</span></div><div class="line">		System.out.println(a);  <span class="comment">// null</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">	<span class="keyword">new</span> NBA().print();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="初始化顺序"><a href="#初始化顺序" class="headerlink" title="初始化顺序"></a>初始化顺序</h4><p> <strong>在类的内部，变量定义的先后顺序决定了初始化的顺序。即使变量定义散布于方法定义（包括构造器）之间，它们也会在任何方法被调用之前得到初始化。</strong></p>
@@ -554,19 +554,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Plan</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java语法</a>
               </li>
             
             <div class="clearfix"></div>
@@ -627,6 +627,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="http://cmsblogs.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>chenssy</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.woainia.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Z</a>
             </li>
           
         </ul>
